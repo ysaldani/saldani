@@ -3,18 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PDF to Word Converter</title>
+  <title>SALDANI | PDF to Word</title>
+  <meta name="description" content="Convert your PDF files to editable Word documents instantly with SALDANI." />
+  <meta name="keywords" content="PDF to Word, SALDANI, convert PDF, document converter" />
+  <meta name="author" content="SALDANI" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
   <style>
+    * {
+      box-sizing: border-box;
+    }
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f0f2f5;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #eef2f3, #ffffff);
       color: #333;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
+      padding: 20px;
     }
     header {
       text-align: center;
@@ -23,27 +29,34 @@
     h1 {
       font-size: 2.5em;
       color: #0078D7;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.1em;
+      color: #555;
     }
     .upload-box {
       background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
       text-align: center;
-      width: 90%;
+      width: 100%;
       max-width: 400px;
     }
     input[type="file"] {
       margin: 20px 0;
+      width: 100%;
     }
     button {
       background: #0078D7;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 24px;
       font-size: 1em;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
+      width: 100%;
     }
     button:hover {
       background: #005fa3;
@@ -55,51 +68,29 @@
       color: #0078D7;
       font-weight: bold;
     }
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #777;
+      text-align: center;
+    }
+    footer a {
+      color: #0078D7;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>PDF to Word Converter</h1>
-    <p>Convert your PDF files to editable Word documents instantly</p>
+    <h1>SALDANI</h1>
+    <p>Convert your PDF files to Word documents instantly</p>
   </header>
+
   <div class="upload-box">
     <input type="file" id="pdfFile" accept="application/pdf" />
     <button onclick="convertPDF()">Convert to Word</button>
     <a id="download-link" href="#" download="converted.docx">Download Word File</a>
   </div>
 
-  <script>
-    async function convertPDF() {
-      const fileInput = document.getElementById('pdfFile');
-      const file = fileInput.files[0];
-      if (!file) {
-        alert('Please select a PDF file.');
-        return;
-      }
-
-      const formData = new FormData();
-      formData.append("File", file);
-
-      const apiKey = "YOUR_API_KEY"; // ← ضع مفتاحك هنا
-      const endpoint = `https://v2.convertapi.com/convert/pdf/to/docx?Secret=${apiKey}`;
-
-      try {
-        const response = await fetch(endpoint, {
-          method: "POST",
-          body: formData
-        });
-
-        const result = await response.json();
-        const downloadUrl = result.Files[0].Url;
-
-        const link = document.getElementById('download-link');
-        link.href = downloadUrl;
-        link.style.display = 'block';
-      } catch (error) {
-        alert("Conversion failed. Please try again.");
-        console.error(error);
-      }
-    }
-  </script>
-</body>
-  </html>
+  <footer>
+    <p>By using this site, you agree to our <a href="/privacy-policy.html">
