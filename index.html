@@ -3,647 +3,431 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SALDANI - حلول إبداعية</title>
+    <title>تبرع لدعم قضيتنا</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* متغيرات الألوان */
         :root {
-            --primary: #1a237e;
-            --primary-light: #534bae;
-            --primary-dark: #000051;
-            --secondary: #ff5722;
-            --secondary-light: #ff8a50;
-            --secondary-dark: #c41c00;
-            --accent: #00bcd4;
-            --accent-light: #62efff;
-            --accent-dark: #008ba3;
-            --neutral-light: #f5f5f5;
-            --neutral: #e0e0e0;
-            --neutral-dark: #9e9e9e;
-            --text: #212121;
-            --text-light: #757575;
+            --primary-color: #2c5aa0;
+            --secondary-color: #1e3a8a;
+            --accent-color: #10b981;
+            --text-color: #333;
+            --light-bg: #f8fafc;
             --white: #ffffff;
-            --black: #000000;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        /* إعدادات عامة */
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            background-color: var(--neutral-light);
-            color: var(--text);
+            background-color: var(--light-bg);
+            color: var(--text-color);
             line-height: 1.6;
         }
-
+        
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
-
-        section {
-            padding: 80px 0;
-        }
-
-        h1, h2, h3, h4 {
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        h1 {
-            font-size: 3rem;
-        }
-
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary);
-        }
-
-        p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: var(--secondary);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: var(--secondary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* الهيدر */
+        
         header {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
         }
-
-        .header-content {
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 3rem 0;
+        }
+        
+        .donation-section {
+            flex: 1;
+            min-width: 300px;
+            background: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .progress-section {
+            margin-bottom: 2rem;
+        }
+        
+        .progress-info {
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            margin-bottom: 0.5rem;
         }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-
-        /* قسم المقدمة */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: var(--white);
-            padding: 180px 0 100px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-        }
-
-        /* قسم الألوان */
-        .colors {
-            background-color: var(--white);
-        }
-
-        .color-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .color-card {
+        
+        .progress-bar {
+            height: 20px;
+            background-color: #e5e7eb;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
         }
-
-        .color-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .color-preview {
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .color-info {
-            padding: 20px;
-            background-color: var(--white);
-        }
-
-        .color-name {
-            font-weight: 600;
-            margin-bottom: 5px;
-        }
-
-        .color-hex {
-            color: var(--text-light);
-            font-family: monospace;
-        }
-
-        /* قسم الميزات */
-        .features {
-            background-color: var(--neutral-light);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background-color: var(--white);
-            padding: 30px;
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-color), #34d399);
+            width: 65%;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: width 1s ease-in-out;
+        }
+        
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .donation-option {
+            background: var(--light-bg);
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 1rem;
             text-align: center;
-            transition: transform 0.3s ease;
+            cursor: pointer;
+            transition: all 0.3s;
         }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
+        
+        .donation-option:hover {
+            border-color: var(--primary-color);
         }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-
-        /* قسم الاشتراك */
-        .cta {
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
+        
+        .donation-option.active {
+            background-color: var(--primary-color);
             color: var(--white);
-            text-align: center;
-            padding: 100px 0;
+            border-color: var(--primary-color);
         }
-
-        .cta h2 {
-            color: var(--white);
+        
+        .custom-amount {
+            margin: 1.5rem 0;
         }
-
-        .cta h2::after {
-            background-color: var(--white);
-        }
-
-        .cta-form {
-            max-width: 500px;
-            margin: 40px auto 0;
-            display: flex;
-        }
-
-        .cta-form input {
-            flex: 1;
-            padding: 15px;
-            border: none;
-            border-radius: 30px 0 0 30px;
+        
+        .custom-amount input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
             font-size: 1rem;
         }
-
-        .cta-form button {
-            border-radius: 0 30px 30px 0;
-            padding: 0 30px;
-        }
-
-        /* الفوتر */
-        footer {
-            background-color: var(--primary-dark);
+        
+        .donate-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--white);
-            padding: 60px 0 30px;
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+            font-weight: bold;
         }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+        
+        .donate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
-
-        .footer-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
+        
+        .comments-section {
+            flex: 1;
+            min-width: 300px;
+            background: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
         }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--accent);
+        
+        .comments-title {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--light-bg);
         }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: var(--neutral);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .social-links {
+        
+        .comment {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--light-bg);
         }
-
-        .social-links a {
-            display: inline-flex;
+        
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: var(--white);
+            display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
+            font-weight: bold;
+            margin-left: 1rem;
+            flex-shrink: 0;
         }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-3px);
+        
+        .comment-content {
+            flex: 1;
         }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--neutral);
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .comment-name {
+            font-weight: bold;
+        }
+        
+        .comment-date {
+            color: #6b7280;
             font-size: 0.9rem;
         }
-
-        /* التجاوب مع الشاشات المختلفة */
+        
+        .comment-text {
+            color: #4b5563;
+        }
+        
+        .new-comment {
+            margin-top: 2rem;
+        }
+        
+        .new-comment textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #cbd5e1;
+            border-radius: 8px;
+            resize: vertical;
+            min-height: 100px;
+            margin-bottom: 1rem;
+        }
+        
+        .submit-comment {
+            background: var(--accent-color);
+            color: var(--white);
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-comment:hover {
+            background: #059669;
+        }
+        
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            .hero {
-                padding: 150px 0 80px;
-            }
-            
-            nav ul {
-                display: none;
-            }
-            
-            .cta-form {
+            .main-content {
                 flex-direction: column;
             }
             
-            .cta-form input {
-                border-radius: 30px;
-                margin-bottom: 10px;
-            }
-            
-            .cta-form button {
-                border-radius: 30px;
+            h1 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- الهيدر -->
     <header>
         <div class="container">
-            <div class="header-content">
-                <a href="#" class="logo">SAL<span>DANI</span></a>
-                <nav>
-                    <ul>
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#colors">الألوان</a></li>
-                        <li><a href="#features">الميزات</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
-                    </ul>
-                </nav>
+            <div class="logo">
+                <i class="fas fa-hands-helping"></i>
             </div>
+            <h1>ادعم قضيتنا وشارك في تحقيق هدفنا</h1>
+            <p class="subtitle">نحن نعمل بجد لتحقيق هدفنا البالغ 100,000 دولار لدعم مشروعنا الإنساني. تبرعك سيساعدنا على إحداث فرق حقيقي في حياة المحتاجين.</p>
         </div>
     </header>
-
-    <!-- قسم المقدمة -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>مرحباً بكم في SALDANI</h1>
-            <p>نحن نقدم حلولاً إبداعية ومبتكرة تلبي احتياجات عملك في العصر الرقمي. فريقنا من الخبراء مستعد لتحقيق رؤيتك إلى واقع ملموس.</p>
-            <a href="#contact" class="btn">ابدأ رحلتك معنا</a>
+    
+    <div class="container">
+        <div class="main-content">
+            <section class="donation-section">
+                <div class="progress-section">
+                    <div class="progress-info">
+                        <span>تم جمع: 65,000 دولار</span>
+                        <span>الهدف: 100,000 دولار</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+                    <p style="text-align: center; margin-top: 0.5rem; color: var(--accent-color); font-weight: bold;">65% من الهدف</p>
+                </div>
+                
+                <h2>اختر مبلغ التبرع</h2>
+                <div class="donation-options">
+                    <div class="donation-option" data-amount="10">10$</div>
+                    <div class="donation-option" data-amount="25">25$</div>
+                    <div class="donation-option active" data-amount="50">50$</div>
+                    <div class="donation-option" data-amount="100">100$</div>
+                    <div class="donation-option" data-amount="250">250$</div>
+                    <div class="donation-option" data-amount="500">500$</div>
+                </div>
+                
+                <div class="custom-amount">
+                    <input type="number" id="custom-amount" placeholder="أو أدخل مبلغ مخصص">
+                </div>
+                
+                <button class="donate-btn" id="donate-button">
+                    تبرع الآن عبر PayPal
+                    <i class="fab fa-paypal" style="margin-right: 8px;"></i>
+                </button>
+                
+                <p style="text-align: center; margin-top: 1rem; color: #6b7280;">
+                    <i class="fas fa-lock"></i>
+                    معاملات آمنة ومشفرة
+                </p>
+            </section>
+            
+            <section class="comments-section">
+                <h2 class="comments-title">تعليقات المتبرعين</h2>
+                
+                <div class="comment">
+                    <div class="comment-avatar">م</div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <span class="comment-name">محمد أحمد</span>
+                            <span class="comment-date">قبل 3 أيام</span>
+                        </div>
+                        <p class="comment-text">أشكركم على هذا العمل الرائع. أتمنى لكم التوفيق في تحقيق هدفكم. بارك الله في جهودكم.</p>
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-avatar">س</div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <span class="comment-name">سارة الخالد</span>
+                            <span class="comment-date">قبل 5 أيام</span>
+                        </div>
+                        <p class="comment-text">عمل إنساني مميز يستحق الدعم. سأشارك الرابط مع أصدقائي للمساهمة أيضاً.</p>
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-avatar">ع</div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <span class="comment-name">عبدالله السعدي</span>
+                            <span class="comment-date">قبل أسبوع</span>
+                        </div>
+                        <p class="comment-text">فرصة رائعة للمساهمة في عمل خيري. التبرع سهل وآمن عبر PayPal.</p>
+                    </div>
+                </div>
+                
+                <div class="comment">
+                    <div class="comment-avatar">ف</div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <span class="comment-name">فاطمة ناصر</span>
+                            <span class="comment-date">قبل أسبوعين</span>
+                        </div>
+                        <p class="comment-text">أشعر بالسعادة عندما أرى التقدم في تحقيق الهدف. استمروا في هذا العمل المميز.</p>
+                    </div>
+                </div>
+                
+                <div class="new-comment">
+                    <h3>اترك تعليقك</h3>
+                    <textarea placeholder="شاركنا برأيك أو رسالة تشجيع..."></textarea>
+                    <button class="submit-comment">إرسال التعليق</button>
+                </div>
+            </section>
         </div>
-    </section>
-
-    <!-- قسم الألوان -->
-    <section class="colors" id="colors">
-        <div class="container">
-            <h2>نظام الألوان</h2>
-            <div class="color-grid">
-                <!-- اللون الأساسي -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--primary);">
-                        Primary
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">الأساسي</div>
-                        <div class="color-hex">#1a237e</div>
-                    </div>
-                </div>
-                
-                <!-- اللون الأساسي الفاتح -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--primary-light);">
-                        Primary Light
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">الأساسي الفاتح</div>
-                        <div class="color-hex">#534bae</div>
-                    </div>
-                </div>
-                
-                <!-- اللون الأساسي الغامق -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--primary-dark); color: white;">
-                        Primary Dark
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">الأساسي الغامق</div>
-                        <div class="color-hex">#000051</div>
-                    </div>
-                </div>
-                
-                <!-- اللون الثانوي -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--secondary);">
-                        Secondary
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">الثانوي</div>
-                        <div class="color-hex">#ff5722</div>
-                    </div>
-                </div>
-                
-                <!-- اللون الثانوي الفاتح -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--secondary-light);">
-                        Secondary Light
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">الثانوي الفاتح</div>
-                        <div class="color-hex">#ff8a50</div>
-                    </div>
-                </div>
-                
-                <!-- اللون الثانوي الغامق -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--secondary-dark); color: white;">
-                        Secondary Dark
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">الثانوي الغامق</div>
-                        <div class="color-hex">#c41c00</div>
-                    </div>
-                </div>
-                
-                <!-- اللون المميز -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--accent);">
-                        Accent
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">المميز</div>
-                        <div class="color-hex">#00bcd4</div>
-                    </div>
-                </div>
-                
-                <!-- اللون المميز الفاتح -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--accent-light);">
-                        Accent Light
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">المميز الفاتح</div>
-                        <div class="color-hex">#62efff</div>
-                    </div>
-                </div>
-                
-                <!-- اللون المميز الغامق -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--accent-dark); color: white;">
-                        Accent Dark
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">المميز الغامق</div>
-                        <div class="color-hex">#008ba3</div>
-                    </div>
-                </div>
-                
-                <!-- اللون المحايد الفاتح -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--neutral-light);">
-                        Neutral Light
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">المحايد الفاتح</div>
-                        <div class="color-hex">#f5f5f5</div>
-                    </div>
-                </div>
-                
-                <!-- اللون المحايد -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--neutral);">
-                        Neutral
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">المحايد</div>
-                        <div class="color-hex">#e0e0e0</div>
-                    </div>
-                </div>
-                
-                <!-- اللون المحايد الغامق -->
-                <div class="color-card">
-                    <div class="color-preview" style="background-color: var(--neutral-dark); color: white;">
-                        Neutral Dark
-                    </div>
-                    <div class="color-info">
-                        <div class="color-name">المحايد الغامق</div>
-                        <div class="color-hex">#9e9e9e</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم الميزات -->
-    <section class="features" id="features">
-        <div class="container">
-            <h2>ميزاتنا</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎨</div>
-                    <h3>تصميم مبدع</h3>
-                    <p>نقدم تصاميم فريدة وجذابة تعكس هوية علامتك التجارية وتلفت انتباه عملائك.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">⚡</div>
-                    <h3>أداء عالي</h3>
-                    <p>حلولنا مصممة لتقديم أداء استثنائي وسرعة تحميل فائقة لتحسين تجربة المستخدم.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">📱</div>
-                    <h3>متجاوب مع جميع الأجهزة</h3>
-                    <p>جميع منتجاتنا متجاوبة تماماً مع جميع أحجام الشاشات والأجهزة المختلفة.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>آمن وحماية</h3>
-                    <p>نضمن أعلى معايير الأمان والحماية لبياناتك وبيانات عملائك.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>تطوير مستمر</h3>
-                    <p>نواكب أحدث التقنيات ونتطور باستمرار لتقديم أفضل الحلول لعملائنا.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">💼</div>
-                    <h3>دعم فني متكامل</h3>
-                    <p>فريق دعم فني محترف جاهز لمساعدتك في أي وقت لتقديم أفضل تجربة ممكنة.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم الاشتراك -->
-    <section class="cta" id="contact">
-        <div class="container">
-            <h2>كن جزءاً من رحلتنا</h2>
-            <p>اشترك في نشرتنا البريدية لتصلك آخر التحديثات والعروض الحصرية.</p>
-            <form class="cta-form">
-                <input type="email" placeholder="بريدك الإلكتروني" required>
-                <button type="submit" class="btn">اشترك الآن</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- الفوتر -->
+    </div>
+    
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>SALDANI</h3>
-                    <p>نحن شركة رائدة في تقديم الحلول الرقمية المبتكرة التي تساعد الشركات على النمو والازدهار في العصر الرقمي.</p>
-                    <div class="social-links">
-                        <a href="#"><span>ف</span></a>
-                        <a href="#"><span>ت</span></a>
-                        <a href="#"><span>ل</span></a>
-                        <a href="#"><span>ي</span></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>روابط سريعة</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">الرئيسية</a></li>
-                        <li><a href="#colors">الألوان</a></li>
-                        <li><a href="#features">الميزات</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>خدماتنا</h3>
-                    <ul class="footer-links">
-       
+            <p>© 2023 جميع الحقوق محفوظة | مشروعنا الإنساني</p>
+            <p style="margin-top: 0.5rem; opacity: 0.8;">للاستفسارات: info@example.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // اختيار مبلغ التبرع
+        const donationOptions = document.querySelectorAll('.donation-option');
+        const customAmountInput = document.getElementById('custom-amount');
+        
+        donationOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                donationOptions.forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                customAmountInput.value = '';
+            });
+        });
+        
+        customAmountInput.addEventListener('input', function() {
+            if (this.value) {
+                donationOptions.forEach(opt => opt.classList.remove('active'));
+            }
+        });
+        
+        // زر التبرع
+        document.getElementById('donate-button').addEventListener('click', function() {
+            let amount = 0;
+            const activeOption = document.querySelector('.donation-option.active');
+            
+            if (activeOption) {
+                amount = activeOption.getAttribute('data-amount');
+            } else if (customAmountInput.value) {
+                amount = customAmountInput.value;
+            }
+            
+            if (amount > 0) {
+                // إعادة التوجيه إلى صفحة PayPal مع المبلغ
+                window.location.href = `https://paypal.me/ysnsaldani/${amount}`;
+            } else {
+                // إذا لم يتم تحديد مبلغ، الانتقال إلى صفحة PayPal بدون تحديد مبلغ
+                window.location.href = 'https://paypal.me/ysnsaldani';
+            }
+        });
+        
+        // إرسال تعليق جديد
+        document.querySelector('.submit-comment').addEventListener('click', function() {
+            const commentText = document.querySelector('.new-comment textarea').value;
+            if (commentText.trim() !== '') {
+                alert('شكراً لك على تعليقك! سيتم عرضه بعد المراجعة.');
+                document.querySelector('.new-comment textarea').value = '';
+            } else {
+                alert('يرجى كتابة تعليق قبل الإرسال.');
+            }
+        });
+    </script>
+</body>
+    </html>
