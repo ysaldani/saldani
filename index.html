@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المملكة المغربية - تاريخ عريق وحضارة مجيدة</title>
+    <title>SALDANI (SLD) - Next Generation Cryptocurrency</title>
     <style>
-        /* أنماط CSS عامة */
+        :root {
+            --primary: #2a4b8d;
+            --secondary: #4a7bd9;
+            --accent: #00d4aa;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -13,28 +21,123 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        :root {
-            --primary-color: #c1272d;
-            --secondary-color: #006233;
-            --accent-color: #ffc400;
-            --dark-color: #1a1a1a;
-            --light-color: #f8f9fa;
-            --text-color: #333;
-        }
-        
         body {
-            background-color: var(--light-color);
-            color: var(--text-color);
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
         }
         
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgZmlsbD0idXJsKCNwYXR0ZXJuKSIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+        
+        .logo-container {
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--primary);
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 50px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Section Styles */
         section {
             padding: 80px 0;
         }
@@ -47,197 +150,135 @@
         
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 15px;
         }
         
-        .section-title::after {
+        .section-title h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
         }
         
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* أنماط الهيدر */
-        header {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1543349689-9a4d426bee8e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        .section-subtitle {
             text-align: center;
-            position: relative;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            z-index: 1;
-        }
-        
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        }
-        
-        .hero-content p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
-        }
-        
-        .scroll-down {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 2rem;
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-20px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-10px) translateX(-50%);
-            }
-        }
-        
-        /* أنماط شريط التنقل */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgba(26, 26, 26, 0.9);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-        
-        nav.scrolled {
-            background-color: var(--dark-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-        }
-        
-        .logo span {
-            color: var(--accent-color);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-        
-        /* أنماط قسم المقدمة */
-        .intro {
-            background-color: white;
-        }
-        
-        .intro-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .intro-text {
-            flex: 1;
-        }
-        
-        .intro-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-        
-        .intro-text p {
-            margin-bottom: 20px;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: var(--gray);
             font-size: 1.1rem;
         }
         
-        .intro-image {
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
             flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .crypto-img {
+            max-width: 100%;
             border-radius: 10px;
-            overflow: hidden;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
-        .intro-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
+        /* Features Section */
+        .features {
+            background: #f0f4f8;
         }
         
-        .intro-image:hover img {
-            transform: scale(1.05);
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
-        /* أنماط قسم التاريخ */
-        .history {
-            background-color: #f5f5f5;
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .team-member {
+            text-align: center;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #e9ecef;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .member-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        /* Roadmap Section */
+        .roadmap {
+            background: #f0f4f8;
         }
         
         .timeline {
             position: relative;
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
         }
         
@@ -245,7 +286,7 @@
             content: '';
             position: absolute;
             width: 6px;
-            background-color: var(--primary-color);
+            background: var(--primary);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -268,176 +309,121 @@
         }
         
         .timeline-content {
-            padding: 20px 30px;
-            background-color: white;
-            position: relative;
-            border-radius: 6px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            right: -10px;
-            background-color: white;
-            top: 20px;
-            border-radius: 50%;
-            z-index: 1;
-            border: 4px solid var(--primary-color);
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            left: -10px;
-            background-color: white;
-            top: 20px;
-            border-radius: 50%;
-            z-index: 1;
-            border: 4px solid var(--primary-color);
-        }
-        
-        .timeline-content h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        /* أنماط قسم التراث */
-        .heritage {
-            background-color: white;
-        }
-        
-        .heritage-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .heritage-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .heritage-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .heritage-img {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .heritage-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .heritage-card:hover .heritage-img img {
-            transform: scale(1.1);
-        }
-        
-        .heritage-content {
             padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
         
-        .heritage-content h3 {
-            color: var(--primary-color);
+        .timeline-date {
+            font-weight: 700;
+            color: var(--primary);
             margin-bottom: 10px;
         }
         
-        /* أنماط قسم الشخصيات */
-        .figures {
-            background-color: #f5f5f5;
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent);
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
         }
         
-        .figures-grid {
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+        
+        /* Downloads Section */
+        .downloads-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
         }
         
-        .figure-card {
-            background-color: white;
+        .download-card {
+            background: white;
+            padding: 30px;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             text-align: center;
-            padding: 30px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
         }
         
-        .figure-card:hover {
-            transform: translateY(-10px);
+        .download-card:hover {
+            transform: translateY(-5px);
         }
         
-        .figure-icon {
+        .download-icon {
             font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-        
-        .figure-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        /* أنماط الفوتر */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 60px 0 20px;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        
-        .footer-column h3 {
-            color: var(--accent-color);
             margin-bottom: 20px;
-            font-size: 1.3rem;
+            color: var(--primary);
         }
         
-        .footer-column p, .footer-column a {
-            color: #ccc;
-            margin-bottom: 10px;
-            display: block;
+        /* Contact Section */
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background: white;
+            border-radius: 10px;
             text-decoration: none;
-            transition: color 0.3s ease;
+            color: var(--dark);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
         }
         
-        .footer-column a:hover {
-            color: var(--accent-color);
+        .contact-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            text-align: center;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent);
         }
         
         .copyright {
-            text-align: center;
+            margin-top: 30px;
             padding-top: 20px;
-            border-top: 1px solid #444;
-            color: #aaa;
-            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
         }
         
-        /* تصميم متجاوب */
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero-content h1 {
+            h1 {
                 font-size: 2.5rem;
             }
             
-            .intro-content {
-                flex-direction: column;
+            .subtitle {
+                font-size: 1.2rem;
             }
             
             .timeline::after {
@@ -454,163 +440,155 @@
                 left: 0;
             }
             
-            .timeline-item:nth-child(odd) .timeline-content::after,
-            .timeline-item:nth-child(even) .timeline-content::after {
+            .timeline-item::after {
                 left: 21px;
-                right: auto;
             }
             
-            .nav-links {
-                display: none;
+            .timeline-item:nth-child(odd)::after,
+            .timeline-item:nth-child(even)::after {
+                left: 21px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- شريط التنقل -->
-    <nav id="navbar">
-        <div class="container nav-container">
-            <div class="logo">المغرب <span>العظيم</span></div>
-            <ul class="nav-links">
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#intro">مقدمة</a></li>
-                <li><a href="#history">التاريخ</a></li>
-                <li><a href="#heritage">التراث</a></li>
-                <li><a href="#figures">شخصيات</a></li>
-            </ul>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <div class="logo">
+                    <div class="logo-text">SLD</div>
+                </div>
+                <h1>SALDANI</h1>
+                <div class="subtitle">Secure, Fast, and Eco-Friendly Cryptocurrency</div>
+            </div>
+            <div class="tagline">Revolutionizing Digital Transactions with Next-Generation Blockchain Technology</div>
+            <div class="cta-buttons">
+                <a href="#downloads" class="btn btn-primary">Download Wallet</a>
+                <a href="#whitepaper" class="btn btn-secondary">Read Whitepaper</a>
+            </div>
         </div>
-    </nav>
-
-    <!-- الهيدر -->
-    <header id="home">
-        <div class="hero-content">
-            <h1>المملكة المغربية</h1>
-            <p>تاريخ عريق وحضارة مجيدة تمتد عبر القرون</p>
-            <a href="#intro" class="btn">اكتشف المغرب</a>
-        </div>
-        <div class="scroll-down">↓</div>
     </header>
 
-    <!-- قسم المقدمة -->
-    <section id="intro" class="intro">
-        <div class="container">
-            <div class="intro-content">
-                <div class="intro-text">
-                    <h3>المملكة المغربية: جسر بين الحضارات</h3>
-                    <p>المغرب بلد عريق يربط بين إفريقيا وأوروبا، يجمع بين الأصالة والحداثة في تناغم فريد. بموقعها الاستراتيجي وتاريخها العريق، شكلت المملكة المغربية عبر العصور مركزاً للحضارة والثقافة والعلم.</p>
-                    <p>تمتد جذور المغرب في عمق التاريخ، حيث تعاقبت عليه حضارات متعددة من الأمازيغ والفينيقيين والرومان والوندال والبيزنطيين، قبل أن يفتحه المسلمون في القرن السابع الميلادي.</p>
-                    <p>اليوم، يحافظ المغرب على تراثه الثري مع انفتاحه على العالم، مكوناً نموذجاً فريداً للتنوع الثقافي والازدهار الاقتصادي.</p>
-                    <a href="#history" class="btn">تعرف على تاريخنا</a>
-                </div>
-                <div class="intro-image">
-                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="صورة لمدينة مغربية">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- قسم التاريخ -->
-    <section id="history" class="history">
+    <!-- About Section -->
+    <section id="about">
         <div class="container">
             <div class="section-title">
-                <h2>تاريخ المغرب العريق</h2>
-                <p>رحلة عبر العصور تشهد على عظمة الحضارة المغربية</p>
+                <h2>About SALDANI</h2>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>العصور القديمة</h3>
-                        <p>تعود أقدم الآثار البشرية في المغرب إلى العصر الحجري القديم. ازدهرت حضارات ما قبل التاريخ مثل الحضارة الآشولية والموستيرية والعاترية، تلاها استقرار الأمازيغ الذين شكلوا النواة الأولى للهوية المغربية.</p>
-                    </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>The Future of Digital Currency</h3>
+                    <p>SALDANI (SLD) is a next-generation cryptocurrency designed to address the limitations of existing digital currencies. Built on a proprietary blockchain with advanced consensus mechanisms, SALDANI offers unparalleled security, speed, and scalability.</p>
+                    <p>Our mission is to create a sustainable and accessible digital economy that empowers individuals and businesses worldwide. With near-instant transactions and minimal fees, SALDANI is positioned to become the preferred medium for everyday transactions and smart contracts.</p>
+                    <p>Unlike many cryptocurrencies that consume excessive energy, SALDANI utilizes an eco-friendly Proof-of-Stake algorithm, making it both environmentally responsible and cost-effective to maintain.</p>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>الفترة الفينيقية والرومانية</h3>
-                        <p>أسس الفينيقيون مراكز تجارية على السواحل المغربية حوالي القرن الثاني عشر قبل الميلاد. ثم خضعت المنطقة للحكم الروماني الذي أسس مقاطعة موريتانيا الطنجية، وترك آثاراً عمرانية لا تزال قائمة حتى اليوم.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>الفتح الإسلامي</h3>
-                        <p>دخل الإسلام إلى المغرب في القرن السابع الميلادي، بقيادة القائد عقبة بن نافع. تأسست أول دولة إسلامية مستقلة في المغرب على يد إدريس الأول عام 788م، الذي أسس دولة الأدارسة وعاصمتها فاس.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>الدول المغربية المتعاقبة</h3>
-                        <p>شهد المغرب تعاقب دول عظيمة مثل المرابطين والموحدين والمرينيين والسعديين، وكلها أسهمت في ازدهار الحضارة الإسلامية وامتد نفوذها إلى الأندلس وأجزاء من إفريقيا.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>الدولة العلوية</h3>
-                        <p>تأسست الدولة العلوية عام 1631م ولا تزال تحكم المغرب حتى اليوم. قاد السلاطين والملوك العلويون المغرب في فترات ازدهار وتحديات، محافظين على استقلاله وهويتها العربية الإسلامية.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <h3>المغرب الحديث</h3>
-                        <p>بعد الحماية الفرنسية والإسبانية، نال المغرب استقلاله عام 1956. تحول إلى ملكية دستورية تحت قيادة الملك محمد الخامس ثم الحسن الثاني ومحمد السادس، مسجلاً تقدماً ملحوظاً في مختلف المجالات.</p>
+                <div class="about-image">
+                    <div class="crypto-img" style="background: #e9ecef; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 4rem; color: var(--primary); margin-bottom: 20px;">₿</div>
+                            <div style="font-size: 1.5rem; font-weight: bold;">SALDANI Blockchain</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم التراث -->
-    <section id="heritage" class="heritage">
+    <!-- Features Section -->
+    <section class="features" id="features">
         <div class="container">
             <div class="section-title">
-                <h2>تراث المغرب الثري</h2>
-                <p>كنوز ثقافية وعمرانية تعكس عراقة الحضارة المغربية</p>
+                <h2>Technical Specifications</h2>
             </div>
-            <div class="heritage-grid">
-                <div class="heritage-card">
-                    <div class="heritage-img">
-                        <img src="https://images.unsplash.com/photo-1540374969934-b8555d1175f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="المدينة العتيقة لفاس">
-                    </div>
-                    <div class="heritage-content">
-                        <h3>فاس: العاصمة العلمية</h3>
-                        <p>تعتبر فاس من أقدم المدن imperial بالمغرب، أسسها إدريس الثاني عام 809م. تشتهر بجامعة القرويين، أقدم جامعة في العالم لا تزال تعمل حتى اليوم.</p>
-                    </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Transaction speeds of up to 50,000 TPS with near-instant confirmation times, making SALDANI ideal for everyday use.</p>
                 </div>
-                <div class="heritage-card">
-                    <div class="heritage-img">
-                        <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="صورة لمسجد الحسن الثاني">
-                    </div>
-                    <div class="heritage-content">
-                        <h3>مسجد الحسن الثاني</h3>
-                        <p>يعد هذا المسجد تحفة معمارية فريدة في الدار البيضاء، وهو ثاني أكبر مسجد في إفريقيا. بني جزئياً على الماء ويمثل روعة الفن المعماري المغربي الإسلامي.</p>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Advanced Security</h3>
+                    <p>Utilizes quantum-resistant cryptography and a proprietary consensus algorithm to ensure maximum security against emerging threats.</p>
                 </div>
-                <div class="heritage-card">
-                    <div class="heritage-img">
-                        <img src="https://images.unsplash.com/photo-1520263115673-610416f52ab6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="صورة لساحة جامع الفنا">
-                    </div>
-                    <div class="heritage-content">
-                        <h3>ساحة جامع الفنا</h3>
-                        <p>هذه الساحة التاريخية في مراكش هي قلب المدينة النابض بالحياة، مسجلة في قائمة اليونسكو للتراث الثقافي غير المادي. تجمع بين الفنون الشعبية والتراث الحي.</p>
-                    </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Eco-Friendly</h3>
+                    <p>Energy-efficient Proof-of-Stake algorithm consumes 99.9% less energy than traditional Proof-of-Work systems.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💸</div>
+                    <h3>Low Fees</h3>
+                    <p>Transaction fees as low as $0.001, making micro-transactions economically viable.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Interoperability</h3>
+                    <p>Built with cross-chain compatibility, allowing seamless interaction with other major blockchain networks.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Scalable</h3>
+                    <p>Modular architecture designed to scale horizontally, supporting global adoption without performance degradation.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- قسم الشخصيات -->
-    <section id="figures" class="figures">
+    <!-- Vision Section -->
+    <section id="vision">
         <div class="container">
             <div class="section-title">
-                <h2>شخصيات مغربية خالدة</h2>
-                <p>أعلام سطروا بأعمالهم صفحات مشرقة في تاريخ المغرب</p>
+                <h2>Vision & Mission</h2>
             </div>
-            <div class="figures-grid">
-                <div class="figure-card">
-                    <div class="figure-icon">👑</div>
-                    <h3>الملك محمد الخامس</h3>
-                    <p>قاد حركة الاستقلال ونفي مع عائلته قبل أن يعود منتصراً ليصبح رمزاً للنضال والتحرر.</p>
+            <div class="section-subtitle">
+                SALDANI aims to solve critical challenges in the current cryptocurrency landscape while paving the way for mass adoption.
+            </div>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="crypto-img" style="background: #e9ecef; height: 300px; display: flex; align-items: center; justify-content: center; border-radius: 10px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 4rem; color: var(--primary); margin-bottom: 20px;">🌍</div>
+                            <div style="font-size: 1.5rem; font-weight: bold;">Global Financial Inclusion</div>
+                        </div>
+                    </div>
                 </div>
-                <div class="figure-card">
-                    <div class="figure-icon">📚</div>
-                    <h3>ابن بطوطة</h3>
-                    <p>أشهر رحالة في التاريخ، قطع 120,000 كم وزار 44 دولة، وسجل رحلته في كتاب "تحفة النظار".</p>
-                </d
+                <div class="about-text">
+                    <h3>What Makes SALDANI Unique?</h3>
+                    <p>SALDANI addresses three fundamental problems in the cryptocurrency space:</p>
+                    <ul style="margin: 20px 0; padding-left: 20px;">
+                        <li style="margin-bottom: 10px;"><strong>Scalability:</strong> Most blockchains struggle with network congestion during peak usage. SALDANI's innovative sharding solution enables linear scaling as the network grows.</li>
+                        <li style="margin-bottom: 10px;"><strong>Accessibility:</strong> Complex wallet setups and technical barriers prevent mainstream adoption. SALDANI offers user-friendly interfaces and simplified onboarding processes.</li>
+                        <li style="margin-bottom: 10px;"><strong>Sustainability:</strong> The environmental impact of cryptocurrency mining has drawn criticism. SALDANI's eco-friendly approach makes it a responsible choice for the future.</li>
+                    </ul>
+                    <p>Our vision is to create a decentralized financial ecosystem that is accessible to everyone, regardless of technical expertise or geographic location.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="features" id="team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Team</h2>
+            </div>
+            <div class="section-subtitle">
+                The minds behind SALDANI combine decades of experience in blockchain technology, finance, and software development.
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">AS</div>
+                    <div class="member-name">Alex Sterling</div>
+                    <div class="member-role">Founder & Lead Developer</div>
+                    <p>Former blockchain architect at a Fortune 500 company with 10+ years in distributed systems.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">MJ</div>
+                    <div class="member-name">Maria Jensen</div>
+                    <div class="member-role">Cryptography Expert</div>
+                    <p>PhD in Cryptography with extensive research in post-quantum security protocols.</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">RK</di
