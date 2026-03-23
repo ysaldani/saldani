@@ -13,11 +13,12 @@
       padding: 0;
     }
     header {
-      background: #ff80ab;
+      background: linear-gradient(45deg, #ff80ab, #f48fb1);
       color: #fff;
       padding: 25px;
       text-align: center;
       border-bottom: 4px solid #f48fb1;
+      animation: fadeInDown 1.5s ease;
     }
     h1 {
       margin: 0;
@@ -28,11 +29,13 @@
       color: #d81b60;
       text-align: center;
       margin-top: 10px;
+      animation: fadeIn 2s ease;
     }
     .container {
       padding: 20px;
       max-width: 800px;
       margin: auto;
+      animation: fadeInUp 2s ease;
     }
     details {
       background: #f8bbd0;
@@ -40,6 +43,10 @@
       border-radius: 8px;
       padding: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    details:hover {
+      transform: scale(1.02);
     }
     summary {
       cursor: pointer;
@@ -66,10 +73,12 @@
       color: #fff;
       text-decoration: none;
       border-radius: 6px;
-      transition: background 0.3s ease;
+      transition: background 0.3s ease, transform 0.3s ease;
+      animation: fadeIn 1.5s ease;
     }
     a:hover {
       background: #d81b60;
+      transform: translateY(-3px);
     }
     footer {
       background: #f48fb1;
@@ -78,6 +87,21 @@
       padding: 15px;
       margin-top: 30px;
       border-top: 4px solid #ff80ab;
+      animation: fadeInUp 2s ease;
+    }
+
+    /* أنيميشن */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-20px);}
+      to {opacity: 1; transform: translateY(0);}
     }
   </style>
 </head>
@@ -89,4 +113,65 @@
 </header>
 
 <div class="container">
-  <h2>📑 روابط مباشرة
+  <h2>📑 روابط مباشرة للتحميل</h2>
+
+  <details>
+    <summary>📘 2024 – الدورة العادية</summary>
+    <a href="https://drive.google.com/file/d/1QYvcfLwmgPfjG-zYLHWV8t5eJ_BYWyFW/view" target="_blank">تحميل PDF</a>
+  </details>
+
+  <details>
+    <summary>🔄 2024 – الدورة الاستدراكية</summary>
+    <a href="https://drive.google.com/file/d/1-b3770JJ0RZFLpaijGC5giBEtdb1shm4/view" target="_blank">تحميل PDF</a>
+  </details>
+
+  <details>
+    <summary>📘 2023 – الدورة العادية</summary>
+    <a href="https://drive.google.com/file/d/1EwNTV4p6XpDtD_iovfcy_otCSxGQlARO/view" target="_blank">تحميل PDF</a>
+  </details>
+
+  <details>
+    <summary>🔄 2023 – الدورة الاستدراكية</summary>
+    <a href="https://drive.google.com/file/d/1FdbxADLDiRP6zEAne42navikvJTcIO2K/view" target="_blank">تحميل PDF</a>
+  </details>
+
+  <details>
+    <summary>📘 2022 – الدورة العادية</summary>
+    <a href="https://drive.google.com/file/d/1CvdvoIhCuW9MsO8WLdG0kRvUP4zrpG54/view" target="_blank">تحميل PDF</a>
+  </details>
+
+  <details>
+    <summary>🔄 2022 – الدورة الاستدراكية</summary>
+    <a href="https://drive.google.com/file/d/1sD-hu-aXoIqwNZdljdXQuiJz9uPT1tgD/view" target="_blank">تحميل PDF</a>
+  </details>
+
+  <details>
+    <summary>📘 2020 – الدورة العادية</summary>
+    <a href="https://drive.google.com/file/d/1-rqjUslAghLRdE0fUkwuyyQoz9Q9rCSW/view" target="_blank">تحميل PDF</a>
+  </details>
+
+  <details>
+    <summary>🔄 2020 – الدورة الاستدراكية</summary>
+    <a href="https://drive.google.com/file/d/1wuBSQTJ7eZPRUvfBj8I5aBqYFgXbIVtf/view" target="_blank">تحميل PDF</a>
+  </details>
+
+  <details>
+    <summary>📘 2019 – الدورة العادية</summary>
+    <a href="https://drive.google.com/file/d/1dr7mIr4ZBRlnUQhF3cuuXjVfffdzaMPm/view" target="_blank">تحميل PDF</a>
+  </details>
+
+  <details>
+    <summary>🔄 2019 – الدورة الاستدراكية</summary>
+    <a href="https://drive.google.com/file/d/1QwdwZzBa5WS245obpDIfadCrGhvONMF8/view" target="_blank">تحميل PDF</a>
+  </details>
+
+</div>
+
+<footer>
+  <p>جميع الحقوق محفوظة <a href="http://saldani.site" style="color:#fff;">http://saldani.site</a></p>
+  <p>المطور: ياسين صلداني</p>
+  <p>إعداد المحتوى: الأستاذة القديرة سكينة</p>
+</footer>
+
+</body>
+</html>
