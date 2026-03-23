@@ -3,109 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحميل امتحانات الفيزياء والكيمياء SP BIOF</title>
+    <title>تحميل امتحانات الفيزياء والكيمياء SP BIOF - Taalime.ma</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #f59e0b;
-            --bg-color: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --bg: #f1f5f9;
+            --card-white: #ffffff;
+            --text-dark: #0f172a;
         }
 
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-main);
+            background-color: var(--bg);
+            color: var(--text-dark);
             margin: 0;
-            padding: 0;
+            line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            padding: 50px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
         .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-
-        .intro {
-            text-align: center;
-            margin-bottom: 50px;
+            max-width: 1100px;
+            margin: -30px auto 50px;
+            padding: 0 15px;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
         }
 
-        .year-card {
-            background: var(--card-bg);
-            border-radius: 15px;
+        .card {
+            background: var(--card-white);
+            border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             border: 1px solid #e2e8f0;
         }
 
-        .year-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .year-title {
-            font-size: 1.5rem;
-            color: var(--primary-color);
+        .card h2 {
+            font-size: 1.25rem;
+            text-align: center;
+            color: var(--secondary);
+            margin-bottom: 20px;
             border-bottom: 2px solid #f1f5f9;
             padding-bottom: 10px;
-            margin-bottom: 20px;
-            text-align: center;
         }
 
-        .session-box {
+        .btn-group {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .download-btn {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            background-color: #fff;
-            color: var(--text-main);
+            padding: 12px 18px;
+            background: #fff;
+            color: #334155;
             text-decoration: none;
-            padding: 12px;
+            border: 1px solid #cbd5e1;
             border-radius: 8px;
-            border: 2px solid #e2e8f0;
-            font-weight: bold;
-            transition: all 0.2s;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
 
         .download-btn:hover {
-            background-color: var(--primary-color);
+            background: var(--primary);
             color: white;
-            border-color: var(--primary-color);
+            border-color: var(--primary);
+            transform: scale(1.02);
         }
 
-        .download-btn i {
-            margin-left: 10px;
+        .badge {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: #e2e8f0;
         }
 
-        .badge-normal { color: #059669; border-right: 4px solid #059669; padding-right: 10px; }
-        .badge-remedial { color: #d97706; border-right: 4px solid #d97706; padding-right: 10px; }
+        .normal { border-right: 4px solid #10b981; }
+        .ratt { border-right: 4px solid #f59e0b; }
 
         footer {
             text-align: center;
-            padding: 40px;
+            padding: 30px;
             color: #64748b;
         }
     </style>
@@ -113,43 +106,102 @@
 <body>
 
 <header>
-    <h1>امتحانات الفيزياء والكيمياء SP BIOF</h1>
-    <p>جميع الامتحانات الوطنية مع التصحيح مسلك العلوم الفيزيائية - خيار فرنسية</p>
+    <h1>امتحانات الفيزياء والكيمياء (SP) BIOF</h1>
+    <p>تحميل مباشر لجميع الامتحانات الوطنية مع التصحيح - مسلك العلوم الفيزيائية</p>
 </header>
 
 <div class="container">
-    <div class="intro">
-        <h3>اختر السنة الدراسية لتحميل الامتحان مع التصحيح</h3>
-    </div>
-
     <div class="grid">
-        <div class="year-card">
-            <div class="year-title">امتحانات سنة 2023</div>
-            <div class="session-box">
-                <div class="badge-normal">الدورة العادية</div>
-                <a href="رابط_الامتحان_من_موقعك" class="download-btn">تحميل الامتحان + التصحيح</a>
-                
-                <div class="badge-remedial">الدورة الاستدراكية</div>
-                <a href="رابط_الامتحان_من_موقعك" class="download-btn">تحميل الامتحان + التصحيح</a>
+
+        <div class="card">
+            <h2>سنة 2024</h2>
+            <div class="btn-group">
+                <a href="https://taalime.ma/wp-content/uploads/2024/06/examen-national-physique-chimie-bac-sciences-physique-2024-normale.pdf" class="download-btn normal">
+                    <span>الدورة العادية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
+                <a href="https://taalime.ma/wp-content/uploads/2024/06/examen-national-physique-chimie-bac-sciences-physique-2024-rattrapage.pdf" class="download-btn ratt">
+                    <span>الدورة الاستدراكية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
             </div>
         </div>
 
-        <div class="year-card">
-            <div class="year-title">امتحانات سنة 2022</div>
-            <div class="session-box">
-                <div class="badge-normal">الدورة العادية</div>
-                <a href="رابط_الامتحان_من_موقعك" class="download-btn">تحميل الامتحان + التصحيح</a>
-                
-                <div class="badge-remedial">الدورة الاستدراكية</div>
-                <a href="رابط_الامتحان_من_موقعك" class="download-btn">تحميل الامتحان + التصحيح</a>
+        <div class="card">
+            <h2>سنة 2023</h2>
+            <div class="btn-group">
+                <a href="https://taalime.ma/wp-content/uploads/2023/06/examen-national-physique-chimie-bac-sciences-physique-2023-normale.pdf" class="download-btn normal">
+                    <span>الدورة العادية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
+                <a href="https://taalime.ma/wp-content/uploads/2023/06/examen-national-physique-chimie-bac-sciences-physique-2023-rattrapage.pdf" class="download-btn ratt">
+                    <span>الدورة الاستدراكية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
             </div>
         </div>
 
+        <div class="card">
+            <h2>سنة 2022</h2>
+            <div class="btn-group">
+                <a href="https://taalime.ma/wp-content/uploads/2022/06/examen-national-physique-chimie-bac-sciences-physique-2022-normale.pdf" class="download-btn normal">
+                    <span>الدورة العادية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
+                <a href="https://taalime.ma/wp-content/uploads/2022/06/examen-national-physique-chimie-bac-sciences-physique-2022-rattrapage.pdf" class="download-btn ratt">
+                    <span>الدورة الاستدراكية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
+            </div>
         </div>
+
+        <div class="card">
+            <h2>سنة 2021</h2>
+            <div class="btn-group">
+                <a href="https://taalime.ma/wp-content/uploads/2021/06/examen-national-physique-chimie-bac-sciences-physique-2021-normale.pdf" class="download-btn normal">
+                    <span>الدورة العادية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
+                <a href="https://taalime.ma/wp-content/uploads/2021/06/examen-national-physique-chimie-bac-sciences-physique-2021-rattrapage.pdf" class="download-btn ratt">
+                    <span>الدورة الاستدراكية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>سنة 2020</h2>
+            <div class="btn-group">
+                <a href="https://taalime.ma/wp-content/uploads/2020/06/examen-national-physique-chimie-bac-sciences-physique-2020-normale.pdf" class="download-btn normal">
+                    <span>الدورة العادية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
+                <a href="https://taalime.ma/wp-content/uploads/2020/06/examen-national-physique-chimie-bac-sciences-physique-2020-rattrapage.pdf" class="download-btn ratt">
+                    <span>الدورة الاستدراكية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>سنة 2019</h2>
+            <div class="btn-group">
+                <a href="https://taalime.ma/wp-content/uploads/2019/06/examen-national-physique-chimie-bac-sciences-physique-2019-normale.pdf" class="download-btn normal">
+                    <span>الدورة العادية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
+                <a href="https://taalime.ma/wp-content/uploads/2019/06/examen-national-physique-chimie-bac-sciences-physique-2019-rattrapage.pdf" class="download-btn ratt">
+                    <span>الدورة الاستدراكية</span>
+                    <span class="badge">تحميل PDF</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <footer>
-    <p>جميع الحقوق محفوظة لموقع <a href="https://saldani.site/" style="color: var(--primary-color);">saldani</a></p>
+    <p>جميع الملفات مأخوذة من موقع <a href="https://www.taalime.ma/" style="color: var(--primary);">Taalime.ma</a></p>
 </footer>
 
 </body>
