@@ -22,7 +22,7 @@
 <div id="terminal">
     <div id="output">
         <div>System initialized...</div>
-        <div>Type <span style="color:#00e5ff">'ls'</span> to list files or <span style="color:#00e5ff">'help'</span> for commands.</div>
+        <div>Type <span style="color:#00e5ff">'help'</span> to see commands and available files.</div>
         <br>
     </div>
     <div id="input-line">
@@ -35,7 +35,7 @@
     const inputField = document.getElementById('input-field');
     const output = document.getElementById('output');
 
-    // ملفاتك كأنها في نظام لينكس
+    // ملفاتك الشخصية
     const files = {
         'bio': 'I am a highly skilled Software Developer with over a decade of experience in decentralized finance and systems architecture. I specialize in building robust, secure, and scalable blockchain applications. My goal is to bridge the gap between complex financial theory and user-friendly digital solutions.',
         'project': 'My Cryptocurrency Project: Developing decentralized protocols aimed at enhancing security and liquidity in the DeFi space. Focused on smart contract auditing and creating cross-chain solutions to streamline asset management.',
@@ -57,7 +57,16 @@
                 output.innerHTML = '';
             } 
             else if (command === 'help') {
-                output.innerHTML += `<div class="response">Available commands:\n- ls        : List files\n- cd [name] : Open file (e.g., cd bio)\n- clear     : Clear terminal</div>`;
+                const fileList = Object.keys(files).join(', ');
+                output.innerHTML += `<div class="response">
+                    Commands:
+                    - ls        : List files
+                    - cd [file] : Open specific file
+                    - clear     : Clear terminal
+                    
+                    Available files:
+                    ${fileList}
+                </div>`;
             }
             else if (command === 'ls') {
                 const fileList = Object.keys(files).map(f => `<span>${f}</span>`).join('');
