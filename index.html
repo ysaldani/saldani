@@ -11,7 +11,10 @@
         #input-line { display: flex; align-items: center; border-top: 1px solid #333; padding-top: 10px; }
         #prompt { margin-right: 10px; font-weight: bold; color: #ff00ff; }
         #input-field { background: transparent; border: none; color: #fff; font-family: inherit; font-size: 1.1rem; flex-grow: 1; outline: none; }
+        
         .response { margin-bottom: 15px; white-space: pre-wrap; color: #e0e0e0; }
+        .ascii-art { color: #00ff41; font-size: 0.6rem; line-height: 1.1; white-space: pre; font-weight: bold; }
+        
         .ls-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; color: #00e5ff; margin-bottom: 10px; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-thumb { background: #333; }
@@ -35,12 +38,42 @@
     const inputField = document.getElementById('input-field');
     const output = document.getElementById('output');
 
-    // ملفاتك الشخصية
+    // ASCII portrait data
+    const profileAscii = `
+        ..:----:...        
+    ..:------------------:.    
+   :------------------------:  
+  .--------------------------. 
+ .----------------------------.
+ ::--------------------------::
+ .----------------------------.
+  :--------------------------: 
+   :----:  ..:----:  ..:----:  
+    :---:.:. :----:.:. :---:   
+     :--------------------:    
+      :--:---::..::---:--:     
+       :----:..  ..:----:      
+        :::.      .:::         
+         .  .:---:.  .         
+          :--:---:--:          
+          .:--:--:--:.          
+        .:----:--:----:.        
+       ::-------------::       
+      :::-------------:::      
+     :::---------------:::     
+    :::-----------------:::    
+   :::-------------------:::   
+    `;
+
+    // File system data
     const files = {
         'bio': 'I am a highly skilled Software Developer with over a decade of experience in decentralized finance and systems architecture. I specialize in building robust, secure, and scalable blockchain applications. My goal is to bridge the gap between complex financial theory and user-friendly digital solutions.',
         'project': 'My Cryptocurrency Project: Developing decentralized protocols aimed at enhancing security and liquidity in the DeFi space. Focused on smart contract auditing and creating cross-chain solutions to streamline asset management.',
         'skills': 'Technical Expertise:\n- Programming: Python, JavaScript, Solidity, Rust\n- Blockchain: Ethereum, Layer 2, Web3.js, Hardhat\n- Infrastructure: Docker, Kubernetes, Cloud Security, System Auditing',
-        'contact': 'Contact Information:\n- Email   : 1988developer@gmail.com\n- Phone   : +44 7933 365126\n- PayPal  : 1988developer@gmail.com\nFeel free to reach out for collaborations!'
+        'contact': {
+            ascii: profileAscii,
+            info: 'Contact Information:\n- Email   : 1988developer@gmail.com\n- Phone   : +44 7933 365126\n- PayPal  : 1988developer@gmail.com\nFeel free to reach out for collaborations!'
+        }
     };
 
     inputField.addEventListener('keydown', function(e) {
@@ -52,21 +85,21 @@
 
             output.innerHTML += `<div><span style="color:#ff00ff">user@portfolio:~$</span> ${input}</div>`;
 
-            // تنفيذ الأوامر
+            // Execute commands
             if (command === 'clear') {
                 output.innerHTML = '';
             } 
             else if (command === 'help') {
                 const fileList = Object.keys(files).join(', ');
                 output.innerHTML += `<div class="response">
-                    Commands:
-                    - ls        : List files
-                    - cd [file] : Open specific file
-                    - clear     : Clear terminal
-                    
-                    Available files:
-                    ${fileList}
-                </div>`;
+Commands:
+- ls        : List files
+- cd [file] : Open specific file
+- clear     : Clear terminal
+
+Available files:
+${fileList}
+</div>`;
             }
             else if (command === 'ls') {
                 const fileList = Object.keys(files).map(f => `<span>${f}</span>`).join('');
@@ -76,7 +109,13 @@
                 if (!argument) {
                     output.innerHTML += `<div class="response">Usage: cd [filename]</div>`;
                 } else if (files[argument]) {
-                    output.innerHTML += `<div class="response">${files[argument]}</div>`;
+                    if (argument === 'contact') {
+                        // Display portrait and info
+                        output.innerHTML += `<div class="ascii-art">${files[argument].ascii}</div>`;
+                        output.innerHTML += `<div class="response">${files[argument].info}</div>`;
+                    } else {
+                        output.innerHTML += `<div class="response">${files[argument]}</div>`;
+                    }
                 } else {
                     output.innerHTML += `<div class="response">bash: cd: ${argument}: No such file or directory</div>`;
                 }
@@ -90,6 +129,7 @@
         }
     });
 
+    // Ensure input focus
     document.body.addEventListener('click', () => inputField.focus());
 </script>
 
