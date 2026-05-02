@@ -1,92 +1,74 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>Saldani.site - Cyber Security Hub</title>
-  <style>
-    body {
-      background-color: #0a0a0a;
-      font-family: Consolas, Tahoma, Arial, sans-serif;
-      color: #00ffcc;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: linear-gradient(90deg, #001f1f, #003333);
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 0 15px #00ffcc;
-    }
-    header h1 {
-      font-size: 32px;
-      text-shadow: 0 0 15px #00ffcc;
-    }
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 40px auto;
-      max-width: 1200px;
-    }
-    .card {
-      background-color: #1a1a1a;
-      border: 2px solid #00ffcc;
-      border-radius: 12px;
-      width: 280px;
-      margin: 15px;
-      padding: 20px;
-      text-align: center;
-      box-shadow: 0 0 20px #00ffcc;
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: scale(1.05);
-    }
-    .card h2 {
-      font-size: 20px;
-      margin-bottom: 10px;
-      color: #00ff99;
-    }
-    .card p {
-      font-size: 14px;
-      color: #ccc;
-    }
-    footer {
-      background: #001f1f;
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      color: #666;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Terminal Portfolio</title>
+    <style>
+        body { background-color: #0d0d0d; color: #33ff33; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 20px; height: 100vh; overflow: hidden; }
+        #terminal { max-width: 800px; margin: 0 auto; height: 90vh; display: flex; flex-direction: column; }
+        #output { flex-grow: 1; overflow-y: auto; margin-bottom: 10px; }
+        #input-line { display: flex; align-items: center; }
+        #prompt { margin-right: 10px; font-weight: bold; }
+        #input-field { background: transparent; border: none; color: #fff; font-family: inherit; font-size: 1rem; flex-grow: 1; outline: none; }
+        .command { color: #fff; }
+        .response { margin-bottom: 10px; white-space: pre-wrap; }
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-thumb { background: #333; }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>⚡ Saldani.site - Cyber Security Hub ⚡</h1>
-    <p>منصة تعريفية بعالم الأمن السيبراني</p>
-  </header>
 
-  <div class="container">
-    <div class="card">
-      <h2>أمن الشبكات</h2>
-      <p>مفاهيم عامة حول حماية الشبكات والبنية التحتية.</p>
+<div id="terminal">
+    <div id="output">
+        <div>مرحباً بك في Terminal الشخصي الخاص بي. اكتب <b>help</b> لعرض القائمة.</div>
+        <br>
     </div>
-    <div class="card">
-      <h2>الهندسة الاجتماعية</h2>
-      <p>التقنيات المستخدمة في استغلال العنصر البشري.</p>
+    <div id="input-line">
+        <span id="prompt">visitor@portfolio:~$</span>
+        <input type="text" id="input-field" autofocus autocomplete="off">
     </div>
-    <div class="card">
-      <h2>التشفير</h2>
-      <p>أساسيات حماية البيانات باستخدام الخوارزميات.</p>
-    </div>
-    <div class="card">
-      <h2>أدوات اختبار الاختراق</h2>
-      <p>عرض لأشهر الأدوات التعليمية في المجال.</p>
-    </div>
-  </div>
+</div>
 
-  <footer>
-    <p>© جميع الحقوق محفوظة لـ Saldani.site</p>
-  </footer>
+<script>
+    const inputField = document.getElementById('input-field');
+    const output = document.getElementById('output');
+
+    const commands = {
+        'help': 'الأوامر المتاحة:\n- about: معلومات عني\n- skills: مهاراتي التقنية\n- contact: طرق التواصل\n- clear: مسح الشاشة',
+        'about': 'أنا مطور برمجيات شغوف ببناء تجارب رقمية فريدة.',
+        'skills': 'لغات البرمجة: JavaScript, Python, HTML/CSS\nأدوات: Git, Docker, React',
+        'contact': 'يمكنك مراسلتي عبر: email@example.com',
+    };
+
+    inputField.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            const command = inputField.value.trim().toLowerCase();
+            const responseDiv = document.createElement('div');
+            
+            // Display command
+            output.innerHTML += `<div><span style="color:#0f0">visitor@portfolio:~$</span> ${command}</div>`;
+
+            // Process command
+            if (command === 'clear') {
+                output.innerHTML = '';
+            } else if (commands[command]) {
+                responseDiv.className = 'response';
+                responseDiv.textContent = commands[command];
+                output.appendChild(responseDiv);
+            } else if (command !== '') {
+                output.innerHTML += `<div class="response">الأمر غير معروف: ${command}</div>`;
+            }
+
+            inputField.value = '';
+            output.scrollTop = output.scrollHeight;
+        }
+    });
+
+    // Keep input focused
+    document.body.addEventListener('click', () => inputField.focus());
+</script>
+
 </body>
 </html>
