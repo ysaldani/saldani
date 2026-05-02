@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Terminal Portfolio</title>
+    <title>Developer Terminal Portfolio</title>
     <style>
-        body { background-color: #0d0d0d; color: #33ff33; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 20px; height: 100vh; overflow: hidden; }
-        #terminal { max-width: 800px; margin: 0 auto; height: 90vh; display: flex; flex-direction: column; }
-        #output { flex-grow: 1; overflow-y: auto; margin-bottom: 10px; }
-        #input-line { display: flex; align-items: center; }
-        #prompt { margin-right: 10px; font-weight: bold; }
-        #input-field { background: transparent; border: none; color: #fff; font-family: inherit; font-size: 1rem; flex-grow: 1; outline: none; }
-        .command { color: #fff; }
-        .response { margin-bottom: 10px; white-space: pre-wrap; }
-        /* Scrollbar styling */
+        body { background-color: #050505; color: #00ff41; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 20px; height: 100vh; overflow: hidden; }
+        #terminal { max-width: 900px; margin: 0 auto; height: 90vh; display: flex; flex-direction: column; }
+        #output { flex-grow: 1; overflow-y: auto; margin-bottom: 10px; font-size: 1.1rem; line-height: 1.5; }
+        #input-line { display: flex; align-items: center; border-top: 1px solid #333; padding-top: 10px; }
+        #prompt { margin-right: 10px; font-weight: bold; color: #ff00ff; }
+        #input-field { background: transparent; border: none; color: #fff; font-family: inherit; font-size: 1.1rem; flex-grow: 1; outline: none; }
+        .command { color: #00ff41; }
+        .response { margin-bottom: 15px; white-space: pre-wrap; color: #e0e0e0; }
+        .highlight { color: #00e5ff; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-thumb { background: #333; }
     </style>
@@ -22,11 +22,12 @@
 
 <div id="terminal">
     <div id="output">
-        <div>مرحباً بك في Terminal الشخصي الخاص بي. اكتب <b>help</b> لعرض القائمة.</div>
+        <div>Welcome to the Terminal. System ready.</div>
+        <div>Type <span class="highlight">'help'</span> to see available commands.</div>
         <br>
     </div>
     <div id="input-line">
-        <span id="prompt">visitor@portfolio:~$</span>
+        <span id="prompt">user@dev-profile:~$</span>
         <input type="text" id="input-field" autofocus autocomplete="off">
     </div>
 </div>
@@ -36,10 +37,11 @@
     const output = document.getElementById('output');
 
     const commands = {
-        'help': 'الأوامر المتاحة:\n- about: معلومات عني\n- skills: مهاراتي التقنية\n- contact: طرق التواصل\n- clear: مسح الشاشة',
-        'about': 'أنا مطور برمجيات شغوف ببناء تجارب رقمية فريدة.',
-        'skills': 'لغات البرمجة: JavaScript, Python, HTML/CSS\nأدوات: Git, Docker, React',
-        'contact': 'يمكنك مراسلتي عبر: email@example.com',
+        'help': 'Available commands:\n- bio      : About my professional background\n- project  : My Cryptocurrency Initiative\n- skills   : Programming & Tech Stack\n- contact  : Get in touch (Email, Phone, PayPal)\n- clear    : Clear the terminal',
+        'bio': 'I am a highly skilled Software Developer with a deep focus on decentralized finance and systems architecture. \nWith over a decade of experience, I specialize in building robust, secure, and scalable blockchain applications. \nI am dedicated to bridging the gap between complex financial theory and user-friendly digital solutions.',
+        'project': 'My Cryptocurrency Project involves developing decentralized protocols aimed at enhancing security and liquidity in the DeFi space. \nCurrently focused on smart contract auditing and creating cross-chain solutions to streamline asset management for institutional and retail users.',
+        'skills': 'Technical Expertise:\n- Programming: Python, JavaScript, Solidity, Rust\n- Blockchain: Ethereum, Layer 2 Solutions, Web3.js, Hardhat\n- Infrastructure: Docker, Kubernetes, Cloud Security, System Auditing',
+        'contact': 'Get in touch with me:\n- Email   : 1988developer@gmail.com\n- Phone   : +44 7933 365126\n- PayPal  : 1988developer@gmail.com\nFeel free to reach out for collaborations or project inquiries.',
     };
 
     inputField.addEventListener('keydown', function(e) {
@@ -47,10 +49,8 @@
             const command = inputField.value.trim().toLowerCase();
             const responseDiv = document.createElement('div');
             
-            // Display command
-            output.innerHTML += `<div><span style="color:#0f0">visitor@portfolio:~$</span> ${command}</div>`;
+            output.innerHTML += `<div><span style="color:#ff00ff">user@dev-profile:~$</span> ${command}</div>`;
 
-            // Process command
             if (command === 'clear') {
                 output.innerHTML = '';
             } else if (commands[command]) {
@@ -58,7 +58,7 @@
                 responseDiv.textContent = commands[command];
                 output.appendChild(responseDiv);
             } else if (command !== '') {
-                output.innerHTML += `<div class="response">الأمر غير معروف: ${command}</div>`;
+                output.innerHTML += `<div class="response">Command not found: ${command}. Type 'help' for options.</div>`;
             }
 
             inputField.value = '';
@@ -66,7 +66,6 @@
         }
     });
 
-    // Keep input focused
     document.body.addEventListener('click', () => inputField.focus());
 </script>
 
