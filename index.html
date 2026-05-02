@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Terminal Portfolio</title>
+    <title>Developer Terminal</title>
     <style>
         body { background-color: #050505; color: #00ff41; font-family: 'Courier New', Courier, monospace; margin: 0; padding: 20px; height: 100vh; overflow: hidden; }
         #terminal { max-width: 900px; margin: 0 auto; height: 90vh; display: flex; flex-direction: column; }
@@ -11,9 +11,8 @@
         #input-line { display: flex; align-items: center; border-top: 1px solid #333; padding-top: 10px; }
         #prompt { margin-right: 10px; font-weight: bold; color: #ff00ff; }
         #input-field { background: transparent; border: none; color: #fff; font-family: inherit; font-size: 1.1rem; flex-grow: 1; outline: none; }
-        .command { color: #00ff41; }
         .response { margin-bottom: 15px; white-space: pre-wrap; color: #e0e0e0; }
-        .highlight { color: #00e5ff; }
+        .ls-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; color: #00e5ff; margin-bottom: 10px; }
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-thumb { background: #333; }
     </style>
@@ -22,12 +21,12 @@
 
 <div id="terminal">
     <div id="output">
-        <div>Welcome to the Terminal. System ready.</div>
-        <div>Type <span class="highlight">'help'</span> to see available commands.</div>
+        <div>System initialized...</div>
+        <div>Type <span style="color:#00e5ff">'ls'</span> to list files or <span style="color:#00e5ff">'help'</span> for commands.</div>
         <br>
     </div>
     <div id="input-line">
-        <span id="prompt">user@dev-profile:~$</span>
+        <span id="prompt">user@portfolio:~$</span>
         <input type="text" id="input-field" autofocus autocomplete="off">
     </div>
 </div>
@@ -36,29 +35,45 @@
     const inputField = document.getElementById('input-field');
     const output = document.getElementById('output');
 
-    const commands = {
-        'help': 'Available commands:\n- bio      : About my professional background\n- project  : My Cryptocurrency Initiative\n- skills   : Programming & Tech Stack\n- contact  : Get in touch (Email, Phone, PayPal)\n- clear    : Clear the terminal',
-        'bio': 'I am a highly skilled Software Developer with a deep focus on decentralized finance and systems architecture. \nWith over a decade of experience, I specialize in building robust, secure, and scalable blockchain applications. \nI am dedicated to bridging the gap between complex financial theory and user-friendly digital solutions.',
-        'project': 'My Cryptocurrency Project involves developing decentralized protocols aimed at enhancing security and liquidity in the DeFi space. \nCurrently focused on smart contract auditing and creating cross-chain solutions to streamline asset management for institutional and retail users.',
-        'skills': 'Technical Expertise:\n- Programming: Python, JavaScript, Solidity, Rust\n- Blockchain: Ethereum, Layer 2 Solutions, Web3.js, Hardhat\n- Infrastructure: Docker, Kubernetes, Cloud Security, System Auditing',
-        'contact': 'Get in touch with me:\n- Email   : 1988developer@gmail.com\n- Phone   : +44 7933 365126\n- PayPal  : 1988developer@gmail.com\nFeel free to reach out for collaborations or project inquiries.',
+    // ملفاتك كأنها في نظام لينكس
+    const files = {
+        'bio': 'I am a highly skilled Software Developer with over a decade of experience in decentralized finance and systems architecture. I specialize in building robust, secure, and scalable blockchain applications. My goal is to bridge the gap between complex financial theory and user-friendly digital solutions.',
+        'project': 'My Cryptocurrency Project: Developing decentralized protocols aimed at enhancing security and liquidity in the DeFi space. Focused on smart contract auditing and creating cross-chain solutions to streamline asset management.',
+        'skills': 'Technical Expertise:\n- Programming: Python, JavaScript, Solidity, Rust\n- Blockchain: Ethereum, Layer 2, Web3.js, Hardhat\n- Infrastructure: Docker, Kubernetes, Cloud Security, System Auditing',
+        'contact': 'Contact Information:\n- Email   : 1988developer@gmail.com\n- Phone   : +44 7933 365126\n- PayPal  : 1988developer@gmail.com\nFeel free to reach out for collaborations!'
     };
 
     inputField.addEventListener('keydown', function(e) {
         if (e.key === 'Enter') {
-            const command = inputField.value.trim().toLowerCase();
-            const responseDiv = document.createElement('div');
-            
-            output.innerHTML += `<div><span style="color:#ff00ff">user@dev-profile:~$</span> ${command}</div>`;
+            const input = inputField.value.trim();
+            const parts = input.split(' ');
+            const command = parts[0].toLowerCase();
+            const argument = parts[1];
 
+            output.innerHTML += `<div><span style="color:#ff00ff">user@portfolio:~$</span> ${input}</div>`;
+
+            // تنفيذ الأوامر
             if (command === 'clear') {
                 output.innerHTML = '';
-            } else if (commands[command]) {
-                responseDiv.className = 'response';
-                responseDiv.textContent = commands[command];
-                output.appendChild(responseDiv);
-            } else if (command !== '') {
-                output.innerHTML += `<div class="response">Command not found: ${command}. Type 'help' for options.</div>`;
+            } 
+            else if (command === 'help') {
+                output.innerHTML += `<div class="response">Available commands:\n- ls        : List files\n- cd [name] : Open file (e.g., cd bio)\n- clear     : Clear terminal</div>`;
+            }
+            else if (command === 'ls') {
+                const fileList = Object.keys(files).map(f => `<span>${f}</span>`).join('');
+                output.innerHTML += `<div class="ls-list">${fileList}</div>`;
+            }
+            else if (command === 'cd') {
+                if (!argument) {
+                    output.innerHTML += `<div class="response">Usage: cd [filename]</div>`;
+                } else if (files[argument]) {
+                    output.innerHTML += `<div class="response">${files[argument]}</div>`;
+                } else {
+                    output.innerHTML += `<div class="response">bash: cd: ${argument}: No such file or directory</div>`;
+                }
+            }
+            else if (input !== '') {
+                output.innerHTML += `<div class="response">Command not found: ${command}</div>`;
             }
 
             inputField.value = '';
