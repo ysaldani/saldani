@@ -2,70 +2,91 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>CyberSec Landing - Saldani.site</title>
+  <title>Saldani.site - Cyber Security Hub</title>
   <style>
     body {
-      background-color: #0d0d0d;
+      background-color: #0a0a0a;
       font-family: Consolas, Tahoma, Arial, sans-serif;
-      color: #00ff99;
-      text-align: center;
-      padding-top: 60px;
-    }
-    h1 {
-      font-size: 28px;
       color: #00ffcc;
-      text-shadow: 0 0 10px #00ffcc;
+      margin: 0;
+      padding: 0;
     }
-    .box {
-      margin: 20px auto;
+    header {
+      background: linear-gradient(90deg, #001f1f, #003333);
       padding: 20px;
-      width: 400px;
-      border: 2px solid #00ffcc;
-      border-radius: 10px;
-      background-color: #1a1a1a;
+      text-align: center;
       box-shadow: 0 0 15px #00ffcc;
     }
-    .label {
-      font-size: 18px;
-      font-weight: bold;
+    header h1 {
+      font-size: 32px;
+      text-shadow: 0 0 15px #00ffcc;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px auto;
+      max-width: 1200px;
+    }
+    .card {
+      background-color: #1a1a1a;
+      border: 2px solid #00ffcc;
+      border-radius: 12px;
+      width: 280px;
+      margin: 15px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 0 20px #00ffcc;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card h2 {
+      font-size: 20px;
       margin-bottom: 10px;
-      color: #00ffcc;
-    }
-    .link {
-      display: block;
-      font-size: 16px;
       color: #00ff99;
-      text-decoration: none;
-      margin-top: 5px;
     }
-    .link:hover {
-      text-decoration: underline;
-      color: #ffffff;
+    .card p {
+      font-size: 14px;
+      color: #ccc;
     }
     footer {
-      margin-top: 50px;
+      background: #001f1f;
+      text-align: center;
+      padding: 15px;
       font-size: 14px;
       color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>⚡ Saldani.site - CyberSec Portal ⚡</h1>
+  <header>
+    <h1>⚡ Saldani.site - Cyber Security Hub ⚡</h1>
+    <p>منصة تعريفية بعالم الأمن السيبراني</p>
+  </header>
 
-  <!-- الخانة الأولى: الموقع الأصلي -->
-  <div class="box">
-    <div class="label">الموقع الأصلي (المخفي):</div>
-    <a href="http://www.saldani.site" class="link">http://www.saldani.site</a>
-  </div>
-
-  <!-- الخانة الثانية: الموقع الهدف -->
-  <div class="box">
-    <div class="label">الموقع الذي سيتم التحويل إليه:</div>
-    <a href="https://facebook.com" class="link">🚀 انتقل الآن</a>
+  <div class="container">
+    <div class="card">
+      <h2>أمن الشبكات</h2>
+      <p>مفاهيم عامة حول حماية الشبكات والبنية التحتية.</p>
+    </div>
+    <div class="card">
+      <h2>الهندسة الاجتماعية</h2>
+      <p>التقنيات المستخدمة في استغلال العنصر البشري.</p>
+    </div>
+    <div class="card">
+      <h2>التشفير</h2>
+      <p>أساسيات حماية البيانات باستخدام الخوارزميات.</p>
+    </div>
+    <div class="card">
+      <h2>أدوات اختبار الاختراق</h2>
+      <p>عرض لأشهر الأدوات التعليمية في المجال.</p>
+    </div>
   </div>
 
   <footer>
-    <p>جميع الحقوق محفوظة © <a href="http://www.saldani.site" style="color:#00ffcc;">Saldani.site</a></p>
+    <p>© جميع الحقوق محفوظة لـ Saldani.site</p>
   </footer>
 </body>
 </html>
